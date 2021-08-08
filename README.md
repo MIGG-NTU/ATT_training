@@ -2,30 +2,35 @@
 
 ![Repository size](https://img.shields.io/github/repo-size/MIGG-NTU/ATT_Training)
 
-The code is for adjoint-state traveltime tomography in the Cartesian coordinates.
-This version is for trainning purpose only.
+The code is for adjoint-state traveltime tomography (ATT) in the Cartesian coordinates.
+This simple version is mainly for training purpose.
+
+The details of the algorithm can be found at
+Tong, P. (2021).
+Adjoint-state traveltime tomography: Eikonal equation-based methods and application to the Anza area in southern California.
+*Journal of Geophysical Research: Solid Earth*, 126, e2021JB021818.
+https://doi.org/10.1029/2021JB021818.
 
 ## Requirements
 
-In order to run the codes, you have to install the following software:
+In order to run the codes, you have to install [GNU Fortran](https://gcc.gnu.org/fortran/) [[Operating system setup tutorials in Chinese](https://seismo-learn.org/seismology101/computer/setup/)]:
 
-1.  [GNU Fortran](https://gcc.gnu.org/fortran/) [[Operating system setup tutorials in Chinese](https://seismo-learn.org/seismology101/computer/setup/)]
+```
+# Fedora
+$ sudo dnf install gcc-gfortran
+    
+# CentOS
+$ sudo yum install gfortran
+    
+# Ubuntu/Debian
+$ sudo apt install gfortran
+    
+# macOS
+$ brew install gfortran
+```
 
-    ```
-    # Fedora
-    $ sudo dnf install gcc-gfortran
-    
-    # CentOS
-    $ sudo yum install gfortran
-    
-    # Ubuntu/Debian
-    $ sudo apt install gfortran
-    
-    # macOS
-    $ brew install gfortran
-    ```
-
-2.  [Generic Mapping Tools (GMT)](https://www.generic-mapping-tools.org/) [[GMT reference book in Chinese](https://docs.gmt-china.org/latest/install/)]
+[Generic Mapping Tools (GMT)](https://www.generic-mapping-tools.org/) is used to plot figures.
+Refer to [[GMT reference book in Chinese](https://docs.gmt-china.org/latest/install/)] for GMT installation and usage.
 
 ## Part I: Data
 
