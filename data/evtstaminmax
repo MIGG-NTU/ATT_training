@@ -1,0 +1,3 @@
+double precision,parameter :: xmin=     0.00000, xmax=   240.00000
+double precision,parameter :: ymin=     0.00000, ymax=     0.00000
+double precision,parameter :: zmin=   -15.00000, zmax=     0.00000

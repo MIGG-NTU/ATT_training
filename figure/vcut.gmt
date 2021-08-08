@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# Plot velocity model and kernel
+#
+
+gmt begin vcut-example pdf
+gmt set FONT_LABEL 10p
+gmt subplot begin 3x1 -Fs12c/2.0c -A -SCb -Bxa20.0f10.0+l"Distance (km)" -Bya10.0f5.0+l"Depth (km)" -BWSen
+
+# Plot velocity model (a)
+gmt subplot set 0
+gmt basemap -R0.0/240.0/0.0/36.0 -JX?/-? 
+awk ' { print $1,$2,$5 }' dvelCut001 | gmt surface -R0.0/240.0/0.0/36.0 -I0.2 -Gtomo.grd
+gmt makecpt -Cpsrgb.cpt -T-6.0/6.0 -I
+gmt grdimage tomo.grd
+gmt colorbar -DJRM+w1.8c/0.2c+e -Ba3+u"%"
+
+# Plot adjoint field (b)
+gmt subplot set 1
+gmt basemap -R0.0/240.0/0.0/36.0 -JX?/-? 
+awk ' { print $1,-1.0*$3,$4 }' ../inversion/adjtfield013 | gmt surface -R0.0/240.0/0.0/36.0 -I0.2 -Gtomo.grd
+gmt makecpt -Cpsrgb.cpt -T-0.40/0.40 -I
+gmt grdimage tomo.grd
+gmt colorbar -DJRM+w1.8c/0.2c+e -Ba0.20
+
+# Plot kernel (c)
+gmt subplot set 2
+gmt basemap -R0.0/240.0/0.0/36.0 -JX?/-?
+awk ' { print $1,-1.0*$3,$4 }' ../inversion/kernel | gmt surface -R0.0/240.0/0.0/36.0 -I0.2 -Gtomo.grd
+gmt makecpt -Cpsrgb.cpt -T-2.0/2.0 -I
+gmt grdimage tomo.grd
+gmt colorbar -DJRM+w1.8c/0.2c+e -Ba1.0
+
+gmt subplot end
+gmt end show

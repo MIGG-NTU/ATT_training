@@ -1,0 +1,5 @@
+double precision,parameter :: xbeg=    -2.00000, xend=   242.00000
+double precision,parameter :: ybeg=    -2.00000, yend=     2.00000
+double precision,parameter :: zbeg=   -36.00000, zend=     2.00000
+double precision,parameter :: dx=     0.40000, dy=     0.40000, dz=     0.40000
+integer,parameter :: nx=  611, ny=   11, nz=   96

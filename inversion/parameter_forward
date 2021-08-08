@@ -1,0 +1,4 @@
+integer,parameter :: iterationmax =   100
+integer,parameter :: ixyz = 3
+double precision,parameter :: eps =   1.0e-08
+double precision,parameter :: valinfty = 1000.0
