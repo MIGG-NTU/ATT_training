@@ -15,19 +15,17 @@
     double precision :: val1,val2,val3,val4
     double precision :: vmax,vmin,vave,dvbd 
     
-    integer :: imodel
-    character (len=3) :: fmtmodel,fmtline
+    character (len=3) :: fmtline
     character (len=80) :: vfile0,vfile1
     character (len=19) :: cutfile
     
-    print*,'please input model index starting from 0'
-    read(*,*) imodel
-    write(fmtmodel,'(I3.3)') imodel
+
     vfile0 = "../model/velocity3d"
-    vfile1 = "../inversion/velocity3d"//fmtmodel
+    vfile1 = "../model/velocity3d_true"
  
-    print*,'Relative velocity perturbation bound 0.01? 0.05?'
-    read(*,*) dvbd
+    !print*,'Relative velocity perturbation bound 0.01? 0.05?'
+    !read(*,*) dvbd
+    dvbd = 0.08
 
 
 ! Read the output
@@ -57,7 +55,7 @@
    do j=1,ny
       do i=1,nx
        	 do k=1,nz      		 
-       	    read(12,*) vinvert3d(i,j,k)
+       	    read(12,*) xx, yy, zz, vinvert3d(i,j,k)
             outdv3d(i,j,k) = 100.0*(vinvert3d(i,j,k)-vstart3d(i,j,k))/vstart3d(i,j,k)
             !outdv3d(i,j,k) = 100.0*(val2 - vstartz(k))/vstartz(k)
           end do
@@ -71,7 +69,7 @@
        read(101,*,end=999) xbegline,ybegline,xendline,yendline
        iL = iL + 1
        write(fmtline,'(I3.3)') iL
-       cutfile = "dvelCut"//fmtline
+       cutfile = "dveltrueCut"//fmtline
        open(10,file=cutfile)
  
        call epidis(xbegline,ybegline,xendline,yendline,dis)

@@ -32,7 +32,9 @@ $ brew install gfortran
 [Generic Mapping Tools (GMT)](https://www.generic-mapping-tools.org/) is used to plot figures.
 Refer to [[GMT reference book in Chinese](https://docs.gmt-china.org/latest/install/)] for GMT installation and usage.
 
-## Part I: Data
+## Program document
+
+### Part I: Data
 
 ```
 $ cd data
@@ -54,7 +56,7 @@ The two regions can be different.
 $ ./workflowStep.sh
 ```
 
-## Part II: CommandCenter
+### Part II: CommandCenter
 
 ```
 $ cd ../../../commandCenter
@@ -77,7 +79,7 @@ $ ./xpara
 $ rm xpara
 ```
 
-## Part III: Model
+### Part III: Model
 
 ```
 cd ../model
@@ -98,7 +100,7 @@ $ ./xvel
 $ rm xvel
 ```
 
-## Part IV: Mesh
+### Part IV: Mesh
 
 ```
 cd ../mesh
@@ -122,7 +124,7 @@ $ ./xmesh
 $ rm xmesh regmesh.mod
 ```
 
-## Part V: CommandCenter
+### Part V: CommandCenter
 
 ```
 cd ../commandCenter
@@ -135,7 +137,7 @@ $ ./workflow_inversion.sh
 
 The obtained velocity model is located at `../inversion/` as `velocity3d015`.
 
-## Part VI: Figure
+### Part VI: Figure
 
 You can display the results along the cross-section set by `lineEnds`:
 
@@ -144,3 +146,62 @@ $ ./plot-cross-section.sh
 ```
 
 The Bash script will call `zCutVelocity.f90` and the gmt script `vcut.gmt`.
+
+## Example
+
+### Example1 Calculate and visualize individual kernel
+```
+$ cd ./data/
+$ cp ./dataInFormat_D_xyz_individual ./dataInFormat_D_xyz
+$ cd ../commandCenter/
+$ ./workflow_obstime.sh
+$ ./workflow_inversion.sh
+```
+Then we can plot the result, select model index 1 and velocity perturbation bound 0.06.
+```
+$ cd ../figure/
+$ ./plot-cross-section.sh
+```
+In the image, (a) is velocity model after 1 round of iteration, (b) is the individual kernel, (c) is true velocity model. Red stars denote sources, blue triangles denote receivers.
+
+### Example2 Calculate and visualize event kernel
+First, clean the output of previous example.
+```
+$ cd ../commandCenter/
+$ ./cleanup.sh
+```
+Then run the following code.
+```
+$ cd ./data/
+$ cp ./dataInFormat_D_xyz_event ./dataInFormat_D_xyz
+$ cd ../commandCenter/
+$ ./workflow_obstime.sh
+$ ./workflow_inversion.sh
+```
+Then we can plot the result,select model index 1 and velocity perturbation bound 0.06.
+```
+$ cd ../figure/
+$ ./plot-cross-section.sh
+```
+In the image, (a) is velocity model after 1 round of iteration, (b) is the event kernel, (c) is true velocity model. Red stars denote sources, blue triangles denote receivers.
+### Example3 Calculate and visualize misfit kernel
+First, clean the output of previous example.
+```
+$ cd ../commandCenter/
+$ ./cleanup.sh
+```
+Then run the following code.
+```
+$ cd ./data/
+$ cp ./dataInFormat_D_xyz_full ./dataInFormat_D_xyz
+$ cd ../commandCenter/
+$ ./workflow_obstime.sh
+$ ./workflow_inversion.sh
+```
+Then we can plot the result,select model index 1 and velocity perturbation bound 0.06.
+```
+$ cd ../figure/
+$ ./plot-cross-section.sh
+```
+In the image, (a) is velocity model after 1 round of iteration, (b) is the event kernel, (c) is true velocity model. Red stars denote sources, blue triangles denote receivers.
+### Example4 Real data from Parkfield
