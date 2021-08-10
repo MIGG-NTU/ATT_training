@@ -1,3 +1,0 @@
-integer,parameter :: nevt=          47
-integer,parameter :: nsta=          25
-integer,parameter :: nray=        1175

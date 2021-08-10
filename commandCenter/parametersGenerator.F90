@@ -6,11 +6,11 @@
 	double precision,parameter :: zbeg=-36.0,zend=2.0
 	double precision,parameter :: dx=0.40,dy= 0.4,dz=0.4   ! x -> longitude, y -> latitude
 	double precision :: xbeg,xend,ybeg,yend
-	integer,parameter :: next=5
+	integer,parameter :: xnext=20, ynext=5
 	integer :: nx,ny,nz
 
         ! (0) How many iterations will you conduct? (start from 1)
-        integer,parameter :: niter = 15
+        integer,parameter :: niter = 1
 
         ! the maximum ratio of traveltime residual over obs and the absolute residual are bounded by tbd and tabs 
         double precision,parameter :: tbd=0.50,tabs=5.0
@@ -33,10 +33,10 @@
         close(40)
 
 
- 	xbeg = xmin - next*dx
-    	xend = xmax + next*dx
-    	ybeg = ymin - next*dy
-    	yend = ymax + next*dy    
+ 	xbeg = xmin - xnext*dx
+    	xend = xmax + xnext*dx
+    	ybeg = ymin - ynext*dy
+    	yend = ymax + ynext*dy    
 
    	nx = max(ifix(real((xend + eps - xbeg)/dx))+1,2)
   	ny = max(ifix(real((yend + eps - ybeg)/dy))+1,2)

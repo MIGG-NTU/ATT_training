@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+################# data ###############
+cd ../data/dataSelection/0_commandCenter/
+./workflowStep.sh
+cd ../../../commandCenter/
+
+################# parameter ###################
+
 gfortran -o xpara parametersGenerator.F90
 ./xpara
 rm xpara
@@ -11,7 +18,7 @@ gfortran -o xvel velocity3d_true.F90
 rm xvel
 cd ../commandCenter/
 
-################## data ##############
+################## forward ##############
 cd ../inversion/
 gfortran -o xsyn syntheticTraveltimes.f90
 ./xsyn

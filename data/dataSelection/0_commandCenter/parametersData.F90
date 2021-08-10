@@ -22,7 +22,7 @@
         integer,parameter :: idbeg = 19000101,idend=20220101
         !  size of searching block
         double precision,parameter :: dx=0.50, dy=0.50, ddep=0.50       
-        integer,parameter :: NBD   = 10 ! The earthquake must have at least NBD phases to be selected. 
+        integer,parameter :: NBD   = 1 ! The earthquake must have at least NBD phases to be selected. 
 
         open(12,file='earthquakeRegion')
 	write(12,'(9F12.4)') xwest,xeast,ysouth,ynorth,zbot,ztop,magmin,magmax,dumpmag
