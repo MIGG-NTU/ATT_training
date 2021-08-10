@@ -223,4 +223,15 @@ This result shows velocity model after first iteration. We can edit `commandCent
 ! Need more time to finish
 niter = 15
 ```
-### Example4 Real data from Parkfield
+### Example4: Real data from Parkfield
+1. Prepare traveltime data.
+``` shell
+$ cd ../data/
+$ cp tra2 tra
+```
+2. Adjust parameters.
+In `commandCenter/parametersGenerator.F90`:
+```Fortran
+niter = 15
+dx= , dy=, dz=
+```
