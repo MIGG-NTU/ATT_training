@@ -227,11 +227,17 @@ niter = 15
 1. Prepare traveltime data.
 ``` shell
 $ cd ../data/
-$ cp tra2 tra
+$ cp  traveltimeReceiverGathers_parkfield traveltimeReceiverGathers
 ```
+
 2. Adjust parameters.
-In `commandCenter/parametersGenerator.F90`:
+Set number of iterations (`niter`), grid size (`dx, dy, dz`), in `commandCenter/parametersGenerator.F90`:
 ```Fortran
 niter = 15
-dx= , dy=, dz=
+dx=0.4, dy=0.4, dz=0.4
+```
+3. Run code
+```shell
+$ cd ../commandCenter/
+$ ./workflow_inversion.sh
 ```
