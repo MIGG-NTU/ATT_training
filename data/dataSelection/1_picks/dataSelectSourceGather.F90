@@ -165,7 +165,7 @@
       write(43,'(A26,I12)') "integer,parameter :: nsta=",iglob
       write(43,'(A26,I12)') "integer,parameter :: nray=",nray
       close(43)
-      print*,'nsrc,nrec,nray',ievt,iglob,nray
+      print*,'nsrc,nrec,ndata',ievt,iglob,nray
 401   format(I7,A10,3F12.4,2X,I1,F8.2,F8.3)
 402   format(3I7,A10,3F12.4,2X,I1,F8.2,F8.3)
 200   format(I10,I5,I3,I3,I3,I3,2X,F6.3,F10.4,F12.4,F7.2,F6.2,I5,I10)
