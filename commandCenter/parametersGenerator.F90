@@ -6,7 +6,7 @@
 	double precision,parameter :: zbeg=-36.0,zend=2.0
 	double precision,parameter :: dx=0.40,dy= 0.4,dz=0.4   ! x -> longitude, y -> latitude
 	double precision :: xbeg,xend,ybeg,yend
-	integer,parameter :: xnext=20, ynext=5
+	integer,parameter :: xnext=30, ynext=5
 	integer :: nx,ny,nz
 
         ! (0) How many iterations will you conduct? (start from 1)
