@@ -1,4 +1,4 @@
-# Adjoint-state Traveltime Tomography (Trainning Version)
+# Adjoint-state Traveltime Tomography (Training Version)
 
 ![Repository size](https://img.shields.io/github/repo-size/MIGG-NTU/ATT_Training)
 
