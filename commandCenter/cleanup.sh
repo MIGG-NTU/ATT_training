@@ -14,3 +14,10 @@ rm -vf dvelCut* dveltrueCut001 mesh.mod tomo.grd vz1d
 
 cd ../inversion/
 rm -vf adjtfield* kernel residual0* velocity3d0*
+rm -vf objectiveFunction
+
+cd ../mesh/
+rm -vf mesh_cube0* multiple-grid
+
+cd ../model/
+rm -vf velocity3d velocity3d_true velocity2d_true
