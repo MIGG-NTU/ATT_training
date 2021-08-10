@@ -30,7 +30,7 @@ $ brew install gfortran
 ```
 
 [Generic Mapping Tools (GMT)](https://www.generic-mapping-tools.org/) is used to plot figures.
-Refer to [[GMT reference book in Chinese](https://docs.gmt-china.org/latest/install/)] for GMT installation and usage.
+Refer to [GMT reference book in Chinese](https://docs.gmt-china.org/latest/install/) for GMT installation and usage.
 
 ## Program document
 
@@ -82,7 +82,7 @@ $ rm xpara
 ### Part III: Model
 
 ```shell
-$ cd ../model
+$ cd ../model/
 ```
 
 If this is for a recovery test, you can set up the target velocity model by editing `velocity3d_true.F90`.
@@ -103,7 +103,7 @@ $ rm xvel
 ### Part IV: Mesh
 
 ```shell
-$ cd ../mesh
+$ cd ../mesh/
 ```
 
 Edit `memeshgenerator.F90` to adjust the size of the inversion grid.
@@ -126,8 +126,8 @@ $ rm xmesh regmesh.mod
 
 ### Part V: CommandCenter
 
-```shell
-$ cd ../commandCenter
+```
+$ cd ../commandCenter/
 
 # Run it if this is a recovery test
 $ ./workflow_obstime.sh
