@@ -37,7 +37,7 @@ Refer to [[GMT reference book in Chinese](https://docs.gmt-china.org/latest/inst
 ### Part I: Data
 
 ```shell
-$ cd data
+$ cd ./data/
 ```
 
 Prepare your data in `dataInFormat_D_xyz` following the designed format.
@@ -150,9 +150,12 @@ $ ./plot-cross-section-real.sh
 
 The Bash script will call `zCutVelocity.f90` and the gmt script `vcut.gmt`.
 
-## Example
+----
 
-### Example1 Calculate and visualize individual kernel
+## Examples
+
+### Example1: Calculate and visualize individual kernel
+
 ```shell
 $ cd ./data/
 $ cp ./dataInFormat_D_xyz_individual ./dataInFormat_D_xyz
@@ -167,7 +170,8 @@ $ ./plot-cross-section-checkerboard.sh
 ```
 In the image, (a) is velocity model after 1 round of iteration, (b) is the individual kernel, (c) is true velocity model. Red stars denote sources, blue triangles denote receivers.
 
-### Example2 Calculate and visualize event kernel
+### Example2: Calculate and visualize event kernel
+
 First, clean the output of previous example.
 ```shell
 $ cd ../commandCenter/
@@ -187,7 +191,9 @@ $ cd ../figure/
 $ ./plot-cross-section-checkerboard.sh
 ```
 In the image, (a) is velocity model after 1 round of iteration, (b) is the event kernel, (c) is true velocity model. Red stars denote sources, blue triangles denote receivers.
-### Example3 Calculate and visualize misfit kernel
+
+### Example3: Calculate and visualize misfit kernel
+
 First, clean the output of previous example.
 ```shell
 $ cd ../commandCenter/

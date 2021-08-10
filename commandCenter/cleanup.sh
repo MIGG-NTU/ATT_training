@@ -10,7 +10,7 @@ rm -vf largeEarthquakes  obstime-rec-gather  obstime-src-gather  phaseDataInRese
 cd ../../
 
 cd ../figure/
-rm -vf dvelCut* tomo.grd
+rm -vf dvelCut* dveltrueCut001 mesh.mod tomo.grd vz1d
 
 cd ../inversion/
-rm -vf adjtfield* kernel residual0* velocity3d0* 
+rm -vf adjtfield* kernel residual0* velocity3d0*

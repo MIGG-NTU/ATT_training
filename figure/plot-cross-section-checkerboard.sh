@@ -27,6 +27,8 @@ T=$(gmt grdinfo -T+s tomo.grd)
 gmt makecpt -Cpsrgb.cpt $T -I
 gmt grdimage tomo.grd
 gmt colorbar -DJRM+w1.8c/0.2c+e -Ba+u"%"
+awk '{print $3, $2}' ../data/receivers | gmt plot -Si0.3c -Gblue -N
+awk '{print $3, -$2}' ../data/sources | gmt plot -Sa0.2c -Gred -W0.5p,white
 
 
 # Plot kernel (b)
@@ -37,8 +39,10 @@ T=$(gmt grdinfo -T+a5+s tomo.grd)
 gmt makecpt -Cpsrgb.cpt $T -I
 gmt grdimage tomo.grd
 gmt colorbar -DJRM+w1.8c/0.2c+e -Ba
+awk '{print $3, $2}' ../data/receivers | gmt plot -Si0.3c -Gblue -N
+awk '{print $3, -$2}' ../data/sources | gmt plot -Sa0.2c -Gred -W0.5p,white
 
-# Plot true velocity model (a)
+# Plot true velocity model (c)
 gmt subplot set 2
 gmt basemap -R0.0/240.0/0.0/36.0 -JX?/-? 
 awk ' { print $1,$2,$5 }' dveltrueCut001 | gmt surface -R0.0/240.0/0.0/36.0 -I0.2 -Gtomo.grd
