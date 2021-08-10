@@ -238,7 +238,6 @@ niter = 15
 dx=0.4, dy=0.4, dz=0.4
 ```
 3. Run code
-```shell
 $ cd ../commandCenter/
 $ ./workflow_inversion.sh
 ```
