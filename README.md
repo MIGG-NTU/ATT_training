@@ -126,7 +126,7 @@ $ rm xmesh regmesh.mod
 
 ### Part V: CommandCenter
 
-```
+```shell
 $ cd ../commandCenter/
 
 # Run it if this is a recovery test
@@ -138,6 +138,10 @@ $ ./workflow_inversion.sh
 The obtained velocity model is located at `../inversion/` as `velocity3d015`.
 
 ### Part VI: Figure
+
+```shell
+$ cd ../figure/
+```
 
 You can display the results along the cross-section set by `lineEnds`:
 
