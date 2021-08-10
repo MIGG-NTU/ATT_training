@@ -1,4 +1,4 @@
-# Adjoint-state Traveltime Tomography (Training Version)
+# Adjoint-state Traveltime Tomography (Trainning Version)
 
 ![Repository size](https://img.shields.io/github/repo-size/MIGG-NTU/ATT_Training)
 
@@ -223,21 +223,36 @@ This result shows velocity model after first iteration. We can edit `commandCent
 ! Need more time to finish
 niter = 15
 ```
-### Example4: Real data from Parkfield
+### Example4: Real data from Ridgecrest
 
-1. Prepare traveltime data.
+#### 1. Prepare traveltime data.
 ``` shell
 $ cd ../data/
-$ cp  traveltimeReceiverGathers_parkfield traveltimeReceiverGathers
+$ cp dataInFormat_D_xyz_ridgecrest dataInFormat_D_xyz
 ```
 
-2. Adjust parameters.
-Set number of iterations (`niter`) and grid size (`dx`, `dy`, `dz`) in `commandCenter/parametersGenerator.F90`:
+#### 2. Adjust data selection parameters.
+We are now working on a different dataset, so we need to adjust the data selection parameters at `data/dataSelection/0_commandCenter/parametersData.F90`.
 ```Fortran
-niter = 15
-dx=0.4, dy=0.4, dz=0.4
+!Adjust data area
+xwest=0.0, xeast=90
+ysouth=0.0, ynorth=20.0
+!Adjust data criteria, The earthquake must have at least NBD phases to be selected
+NBD=4
 ```
-3. Run code
-$ cd ../commandCenter/
+Then run data selection in directory `data/dataSelection/0_commandCenter/`
+```shell
+$ ./workflowStep.sh
+```
+
+#### 3. Set model and inversion parameters 
+in `commandCenter/parametersGenerator.F90`:
+```Fortran
+niter = 10 ! number of iterations
+dx=0.5, dy=0.5, dz=0.5 ! forward grid size
+```
+#### 4. Run inversion
+
+```shell
 $ ./workflow_inversion.sh
 ```

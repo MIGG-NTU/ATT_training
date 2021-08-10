@@ -40,6 +40,7 @@
 
 	double precision :: f1,g1,f2,gknorm
 	double precision :: tmpa,tmpb,tmp
+	double precision :: tori
 	integer :: mode
 	character (len=3) :: citer
 	character (len=13) :: filename,fileb
@@ -77,7 +78,7 @@
 	      t0 = 0.0 
 	      allocate(xrec(nrec),yrec(nrec),zrec(nrec),tobs(nrec))
 	      do i=1,nrec
-	         read(22,*) ii,jj,idrec,zrec(i),xrec(i),yrec(i),tobs(i)
+	         read(22,*) ii,jj,idrec,zrec(i),xrec(i),yrec(i),tori,tobs(i)
 	      end do 
           call forward(x0,y0,z0,timetable)
 	      !print*, 'forward modelling is done'
