@@ -256,3 +256,12 @@ dx=0.5, dy=0.5, dz=0.5 ! forward grid size
 ```shell
 $ ./workflow_inversion.sh
 ```
+#### 5. plot figure
+Adjust region of cross-section, change `lineEnds` to
+```
+0.0 0.0 90.0 0.0
+```
+Then run:
+```shell
+$ ./plot-cross-section-real.sh
+```
