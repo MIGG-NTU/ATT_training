@@ -188,9 +188,13 @@ $ ./workflow_inversion.sh
 Then we can plot the result,select model index 1 and velocity perturbation bound 0.06.
 ```shell
 $ cd ../figure/
-$ ./plot-cross-section-checkerboard.sh
+$ ./plot-cross-section-checkerboard2.sh
 ```
 In the image, (a) is velocity model after 1 round of iteration, (b) is the event kernel, (c) is true velocity model. Red stars denote sources, blue triangles denote receivers.
+
+Note: In this example, we show the event kernel. By definition, it is kernel of single event and multiple receivers.
+In order to optimize performance, we exchange receivers and event. According to reciprocity principle, the result is equivalent.
+In practice, no need to do such optimization, because number of events are almost always much more than receivers.
 
 ### Example3: Calculate and visualize misfit kernel
 
@@ -219,4 +223,21 @@ This result shows velocity model after first iteration. We can edit `commandCent
 ! Need more time to finish
 niter = 15
 ```
-### Example4 Real data from Parkfield
+### Example4: Real data from Parkfield
+
+1. Prepare traveltime data.
+``` shell
+$ cd ../data/
+$ cp  traveltimeReceiverGathers_parkfield traveltimeReceiverGathers
+```
+
+2. Adjust parameters.
+Set number of iterations (`niter`) and grid size (`dx`, `dy`, `dz`) in `commandCenter/parametersGenerator.F90`:
+```Fortran
+niter = 15
+dx=0.4, dy=0.4, dz=0.4
+```
+3. Run code
+$ cd ../commandCenter/
+$ ./workflow_inversion.sh
+```
