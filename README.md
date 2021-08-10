@@ -232,7 +232,7 @@ $ cp  traveltimeReceiverGathers_parkfield traveltimeReceiverGathers
 ```
 
 2. Adjust parameters.
-Set number of iterations (`niter`), grid size (`dx, dy, dz`), in `commandCenter/parametersGenerator.F90`:
+Set number of iterations (`niter`) and grid size (`dx`, `dy`, `dz`) in `commandCenter/parametersGenerator.F90`:
 ```Fortran
 niter = 15
 dx=0.4, dy=0.4, dz=0.4
