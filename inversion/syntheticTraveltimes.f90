@@ -54,7 +54,7 @@
                     wt(5)*timetable(i1,j1,k2)+wt(6)*timetable(i1,j2,k2) + &
                     wt(7)*timetable(i2,j2,k2)+wt(8)*timetable(i2,j1,k2)
 	         write(33,100) ievt,irec,idrec(irec),zrec(irec),xrec(irec),&
-        	        yrec(irec),tcal
+        	        yrec(irec),0.0, tcal
            end do
 	   	deallocate(xrec,yrec,zrec,idrec)
         end do
@@ -62,7 +62,7 @@
         close(22)
 		close(33)
         deallocate(slow,timetable)
-100     FORMAT(3I9,3F16.5,F12.5)
+100     FORMAT(3I9,3F16.5,2F12.5)
         stop    
         end
 
